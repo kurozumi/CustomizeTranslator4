@@ -58,16 +58,18 @@ class TranslationExtension extends Extension implements PrependExtensionInterfac
 
         $dir = $container->getParameter('kernel.project_dir') . '/app/Customize/Resource/locale';
 
+        if (!file_exists($dir)) {
+            ruturn;
+        }
+
         foreach ($extensionConfigs['framework'] as $key => $value) {
             if (isset($value["translator"]["paths"])) {
-                if (file_exists($dir)) {
-                    foreach ($value["translator"]["paths"] as $path) {
-                        if ($path == "%kernel.project_dir%/src/Eccube/Resource/locale/") {
-                            $paths = $extensionConfigs['framework'][$key]['translator']["paths"];
-                            array_push($paths, $dir);
-                            $extensionConfigs['framework'][$key]['translator']["paths"] = $paths;
-                            break;
-                        }
+                foreach ($value["translator"]["paths"] as $path) {
+                    if ($path == "%kernel.project_dir%/src/Eccube/Resource/locale/") {
+                        $paths = $extensionConfigs['framework'][$key]['translator']["paths"];
+                        array_push($paths, $dir);
+                        $extensionConfigs['framework'][$key]['translator']["paths"] = $paths;
+                        break;
                     }
                 }
             }
