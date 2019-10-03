@@ -6,12 +6,12 @@ Customize領域にmessages.ja.yamlを設置すると本体やプラグインで�
 
 設置場所は以下のとおりです。
 
-''''
+```
 app/Customize/Resource/locale/messages.ja.yaml
-''''
+```
 
 ファイル内に以下のように記述して下さい
 
-''''
+```
 common.select__pref: 都道府県を選択して下さい！！！！！
-''''
+```
