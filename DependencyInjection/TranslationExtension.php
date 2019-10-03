@@ -52,15 +52,15 @@ class TranslationExtension extends Extension implements PrependExtensionInterfac
      */
     protected function configureTranslations(ContainerBuilder $container)
     {
-        $extensionConfigsRefl = new \ReflectionProperty(ContainerBuilder::class, 'extensionConfigs');
-        $extensionConfigsRefl->setAccessible(true);
-        $extensionConfigs = $extensionConfigsRefl->getValue($container);
-
         $dir = $container->getParameter('kernel.project_dir') . '/app/Customize/Resource/locale';
 
         if (!file_exists($dir)) {
             ruturn;
         }
+
+        $extensionConfigsRefl = new \ReflectionProperty(ContainerBuilder::class, 'extensionConfigs');
+        $extensionConfigsRefl->setAccessible(true);
+        $extensionConfigs = $extensionConfigsRefl->getValue($container);
 
         foreach ($extensionConfigs['framework'] as $key => $value) {
             if (isset($value["translator"]["paths"])) {
