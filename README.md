@@ -4,7 +4,7 @@ Customize領域にmessages.ja.yamlを設置すると本体やプラグインで�
 本体やプラグインの翻訳ファイルを直接編集するとアップデート時に上書きされてしまう問題を回避するためのプラグインです。
 
 
-設置場所は以下のとおりです。
+翻訳ファイルの設置場所は以下のとおりです。
 
 ```
 app/Customize/Resource/locale/messages.ja.yaml
